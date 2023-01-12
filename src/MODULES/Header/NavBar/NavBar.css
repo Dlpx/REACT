@@ -1,0 +1,23 @@
+.navBar {
+    height: inherit;
+}
+.navBar .navList {
+    height: inherit;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-end;
+    gap: 20px;
+}
+.navBar .navList .navItem {
+    cursor: pointer;
+    transition: all 150ms ease-in-out;
+}
+.navBar .navList .navItem:hover {
+    transform: scale(1.1);
+}
+.navBar .navList .navItem .navLink {
+    color: #E0AF3A;
+    font-weight: bold;
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+}

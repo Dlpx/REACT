@@ -1,0 +1,34 @@
+.itemCount {
+    width: fit-content;
+    margin-top: 40px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+}
+.itemCount .stock {
+    font-size: 1.2rem;
+}
+.itemCount .contenedorBotones .btn{
+    width: fit-content;
+    height: fit-content;
+    font-size: 2rem;
+    font-weight: bolder;
+    border-radius: 5px;
+    cursor: pointer;
+}
+.itemCount .contenedorBotones .cantidad{
+    font-size: 2.5rem;
+    font-weight: bolder;
+
+}
+.itemCount .añadirCarrito{
+    font-size: 2rem;
+    color: #E0AF3A;
+    background-color: #711f31;
+    cursor: pointer;
+}
+.itemCount .añadirCarrito:hover{
+    background-color: #E0AF3A;
+    color: #711f31;
+}

@@ -1,0 +1,53 @@
+* {
+    text-decoration: none;
+    color: black;
+}
+.contProductosShow {
+    margin: auto;
+    width: 90%;
+    background-color: rgb(253, 253, 253);
+}
+.titulo {
+    width: 100%;
+    margin-top: 30px;
+    padding-bottom: 15px;
+    font-size: 2rem;
+    border-bottom: 2px solid black;
+}
+.contProductos {
+    width: 100%;
+    margin-top: 20px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+.producto{
+    width: 200px;
+    height: 300px;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    cursor: pointer;
+    transition: all 150ms ease-in-out;
+}
+.producto:hover {
+    transform: scale(1.02);
+    box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.5);
+}
+
+.producto img {
+    width: 90%;
+    margin: auto;
+    object-fit: contain;
+}
+.producto .prodNombre {
+    height: 55px;
+    font-size: 1rem;
+}
+.prodPRecio {
+    align-self: flex-end;
+}
