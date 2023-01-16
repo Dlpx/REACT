@@ -4,8 +4,8 @@ import "./CarritoElemento.css";
 
 const CarritoElemento = ({el}) => {
     
-    
     const subtotal = el.cantidad * el.precio
+    
 
 
     return(

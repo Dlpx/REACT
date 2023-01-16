@@ -6,8 +6,8 @@ import "./Carrito.css";
 
 const Carrito = () => {
 
-    const {carrito} = useContext(CartContext);
-    console.log(carrito)
+    const {carrito, vaciarCarrito} = useContext(CartContext);
+
 
     return(
         <div className="carritoContainer">
@@ -15,10 +15,14 @@ const Carrito = () => {
             {
                 carrito && carrito.map( (el) => <CarritoElemento key={el.id} el={el}/> )
             }
-            <div className="contenedorBtn">
-                <button className="btn vaciar"> Vaciar Carrito</button>
-                <button className="btn comprar"> Realizar el pago</button>
-            </div>
+            {
+                carrito.lenght > 0
+                ?   <div className="contenedorBtn">
+                        <button className="btn vaciar" onClick={vaciarCarrito}> Vaciar Carrito</button>
+                        <button className="btn comprar"> Realizar el pago</button>
+                    </div>
+                :   <strong>Su carrito esta vacio</strong>
+            }
             
         </div>
     )

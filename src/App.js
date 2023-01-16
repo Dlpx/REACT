@@ -22,10 +22,26 @@ function App() {
     return carrito.some(item => item.id === id)
   }
 
+  const vaciarCarrito = () => {
+    setCarrito([])
+  }
+
+
+  // const totalCarrito = () => {
+  //   return carrito.reduce( (acc, item) => acc + )
+  // }
+
 
   return (
 
-    <CartContext.Provider value={ {carrito, agregarAlCarrito, isInCart} }>
+    <CartContext.Provider value={ 
+      {
+        carrito, 
+        agregarAlCarrito, 
+        isInCart,
+        vaciarCarrito
+      } 
+    }>
 
 
     <BrowserRouter>
