@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import "./Header.css"
 import NavBar from "./NavBar/NavBar";
 
@@ -5,7 +6,7 @@ import NavBar from "./NavBar/NavBar";
 const Header = () => {
     return(
         <div className="headerContainer">
-            <p className="logo">MAGIC TOUCH</p>
+            <Link className="logo" to="/inicio">MAGIC TOUCH</Link>
             <NavBar />
         </div>
     )

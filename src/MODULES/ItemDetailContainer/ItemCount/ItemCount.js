@@ -2,7 +2,8 @@ import "./ItemCount.css"
 
 
 
-const ItemCount = ( {cantidad, setCantidad, max, onAdd } ) => {
+const ItemCount = ( {cantidad, setCantidad, max, onAdd} ) => {
+
     
     const handleRestar = () => {
         cantidad > 1 ? setCantidad(cantidad - 1) : alert("No podes comprar meno de 1")
@@ -11,6 +12,8 @@ const ItemCount = ( {cantidad, setCantidad, max, onAdd } ) => {
     const handleSumar = () => {
         cantidad < max ? setCantidad(cantidad + 1) : alert("No podes comprar mas de los que hay en stock actualmente")
     }
+
+
     
     return(
         <div className="itemCount">

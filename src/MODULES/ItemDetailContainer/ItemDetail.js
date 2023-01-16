@@ -8,7 +8,9 @@ import "./ItemDetail.css";
 
 const ItemDetail = ( {item} ) => {
 
+
     const [cantidad, setCantidad] = useState(1)
+
 
     const navigate = useNavigate()
 
@@ -17,8 +19,9 @@ const ItemDetail = ( {item} ) => {
     }
 
     const handleAgregar = () => {
-        alert("Todavia no pasa nada")
+        console.log({cantidad, ...item})
     }
+
 
     return(
         <div className="contenedorItemDetail">
@@ -32,12 +35,14 @@ const ItemDetail = ( {item} ) => {
                     <p className="detalle">{item.detalle}</p>
                     <p className="precio">Precio: {item.precio}</p>
                     <div className="contenedorItemCount">
-                        <ItemCount
+                        <ItemCount 
+                            max={item.stock} 
+                            item={item}
                             cantidad={cantidad}
                             setCantidad={setCantidad}
-                            max={item.stock}
                             onAdd={handleAgregar}
-                        />
+                            />
+
                     </div>
                 </div>
             </div>

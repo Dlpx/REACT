@@ -6,6 +6,7 @@ import Carrito from './MODULES/Carrito/Carrito';
 import Error404 from './MODULES/Error404/Error404';
 import ItemListContainer from './MODULES/ItemListContainer/ItemListContainer';
 import ItemDetailContainer from './MODULES/ItemDetailContainer/ItemDetailContainer';
+import Contacto from './MODULES/Contacto/Contacto';
 
 
 function App() {
@@ -21,6 +22,7 @@ function App() {
         <Route path='/productos' element={ <ItemListContainer  /> }/>
         <Route path='/productos/:instrumento' element={ <ItemListContainer /> }/>
         <Route path='/mostrar/:itemId' element={ <ItemDetailContainer /> }/>
+        <Route path='/contacto' element={ <Contacto /> }/>
         <Route path='*' element={ <Error404 /> }/>
         
       </Routes>
