@@ -1,5 +1,6 @@
-import { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useContext, useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
+import { CartContext } from "../../CONTEXT/CartContext";
 import ItemCount from "./ItemCount/ItemCount";
 import "./ItemDetail.css";
 
@@ -7,7 +8,7 @@ import "./ItemDetail.css";
 // id, instrumento, descripcion, marca, modelo, detalle, precio, imagen, stock
 
 const ItemDetail = ( {item} ) => {
-
+    const { agregarAlCarrito, isInCart } = useContext(CartContext)
 
     const [cantidad, setCantidad] = useState(1)
 
@@ -19,7 +20,9 @@ const ItemDetail = ( {item} ) => {
     }
 
     const handleAgregar = () => {
-        console.log({cantidad, ...item})
+        const itemAComprar = {...item, cantidad: cantidad}
+        agregarAlCarrito(itemAComprar)
+
     }
 
 
@@ -35,13 +38,24 @@ const ItemDetail = ( {item} ) => {
                     <p className="detalle">{item.detalle}</p>
                     <p className="precio">Precio: {item.precio}</p>
                     <div className="contenedorItemCount">
-                        <ItemCount 
-                            max={item.stock} 
-                            item={item}
-                            cantidad={cantidad}
-                            setCantidad={setCantidad}
-                            onAdd={handleAgregar}
-                            />
+                        {
+                            isInCart(item.id) 
+                            ?   <div className="isNotInCart">
+                                    <p className="yaAgregado">Producto ya agregado</p>
+                                    <div className="botones">
+                                        <Link className="btnLink" to="/productos">Seguir Comprando</Link>
+                                        <Link className="btnLink" to="/carrito">Ir a pagar</Link>
+                                    </div>
+                                </div>
+                            : <ItemCount 
+                                    max={item.stock} 
+                                    item={item}
+                                    cantidad={cantidad}
+                                    setCantidad={setCantidad}
+                                    onAdd={handleAgregar}
+                                />
+                            
+                        }
 
                     </div>
                 </div>

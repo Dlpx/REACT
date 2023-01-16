@@ -7,10 +7,27 @@ import Error404 from './MODULES/Error404/Error404';
 import ItemListContainer from './MODULES/ItemListContainer/ItemListContainer';
 import ItemDetailContainer from './MODULES/ItemDetailContainer/ItemDetailContainer';
 import Contacto from './MODULES/Contacto/Contacto';
+import { CartContext } from './CONTEXT/CartContext';
+import { useState } from 'react';
 
 
 function App() {
+  const [carrito, setCarrito] = useState([])
+
+  const agregarAlCarrito = (item) => {
+    setCarrito( [...carrito, item])
+  }
+
+  const isInCart = (id) =>{
+    return carrito.some(item => item.id === id)
+  }
+
+
   return (
+
+    <CartContext.Provider value={ {carrito, agregarAlCarrito, isInCart} }>
+
+
     <BrowserRouter>
       <Header/>
       
@@ -28,6 +45,11 @@ function App() {
       </Routes>
       
     </BrowserRouter>
+    
+    
+    
+    </CartContext.Provider>
+
     
   );
 }

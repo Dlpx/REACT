@@ -23,6 +23,7 @@ const ItemCount = ( {cantidad, setCantidad, max, onAdd} ) => {
                 <span className="cantidad"> {cantidad} </span>
                 <button onClick={handleSumar} className="btn" > 🔼 </button>
             </div>
+            
             <button onClick={onAdd} className="añadirCarrito"> Añadir al carrito</button>
         </div>
     )
