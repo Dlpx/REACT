@@ -2,11 +2,12 @@ import { useContext } from "react";
 import { CartContext } from "../../CONTEXT/CartContext";
 import CarritoElemento from "./CarritoElemento/CarritoElemento";
 import "./Carrito.css";
+import CarritoVacio from "./CarritoVacio/CarritoVacio";
 
 
 const Carrito = () => {
 
-    const {carrito, vaciarCarrito} = useContext(CartContext);
+    const {carrito, vaciarCarrito, totalCarrito} = useContext(CartContext);
 
 
     return(
@@ -15,14 +16,17 @@ const Carrito = () => {
             {
                 carrito && carrito.map( (el) => <CarritoElemento key={el.id} el={el}/> )
             }
-            {console.log(typeof(carrito))}
+
             {
-                carrito
-                ?   <div className="contenedorBtn">
-                        <button className="btn vaciar" onClick={vaciarCarrito}> Vaciar Carrito</button>
-                        <button className="btn comprar"> Realizar el pago</button>
+                carrito.length >= 1
+                ?   <div className="contenedor">
+                        <h4>Total: { new Intl.NumberFormat('en-AR', {style: 'currency', currency: 'ARS', maximumFractionDigits: 0}).format(totalCarrito()) } </h4>
+                        <div className="contenedorBtn">
+                            <button className="btn vaciar" onClick={vaciarCarrito}> Vaciar Carrito</button>
+                            <button className="btn comprar"> Realizar el pago</button>
+                        </div>
                     </div>
-                :   <strong>Su carrito esta vacio</strong>
+                :   <CarritoVacio />
             }
             
         </div>

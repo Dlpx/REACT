@@ -36,7 +36,7 @@ const ItemDetail = ( {item} ) => {
                 <img className="imgInstrumento" src={item.imagen} alt={item.marca} />
                 <div className="contenedorAside">
                     <p className="detalle">{item.detalle}</p>
-                    <p className="precio">Precio: {item.precio}</p>
+                    <p className="precio">Precio: { new Intl.NumberFormat('en-AR', {style: 'currency', currency: 'ARS', maximumFractionDigits: 0}).format(item.precio) }</p>
                     <div className="contenedorItemCount">
                         {
                             isInCart(item.id) 

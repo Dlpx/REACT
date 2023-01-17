@@ -1,16 +1,27 @@
 .carritoContainer {
     padding: 10px 25px;
 }
-.carritoContainer .contenedorBtn {
+.carritoContainer .contenedor{
+    width: 80%;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+}
+.carritoContainer .contenedor > h4 {
+    width: 20%;
+    font-size: 1.5rem;
+    align-self: flex-end;
+}
+.carritoContainer .contenedor .contenedorBtn {
     width: 80%;
     margin: auto;
     margin-top: 20px;
     display: flex;
     flex-direction: row;
-    justify-content: flex-end;
+    justify-content: center;
     gap: 20px;
 }
-.carritoContainer .contenedorBtn .btn {
+.carritoContainer .contenedor .contenedorBtn .btn {
     background-color: #E0AF3A;
     font-size: 1rem;
     padding: 10px;
@@ -19,16 +30,16 @@
     cursor: pointer;
     transition: all 100ms ease-in-out;
 }
-.carritoContainer .contenedorBtn .btn:hover{
+.carritoContainer .contenedor .contenedorBtn .btn:hover{
     box-shadow: 2px 2px 2px #000000;
     transform: scale(1.05);
     font-weight: bold;
 }
-.carritoContainer .contenedorBtn .vaciar:hover{
+.carritoContainer .contenedor .contenedorBtn .vaciar:hover{
     background-color: #711f31;
     color: white;
 }
-.carritoContainer .contenedorBtn .comprar:hover{
+.carritoContainer .contenedor .contenedorBtn .comprar:hover{
     background-color: #1f7149;
     color: white;
 }

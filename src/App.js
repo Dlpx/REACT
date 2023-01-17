@@ -19,10 +19,7 @@ function App() {
   }
 
   const isInCart = (id) =>{
-    return 
-      {
-        carrito && carrito.some(item => item.id === id)
-      }
+    return carrito && carrito.some(item => item.id === id)
   }
 
   const vaciarCarrito = () => {
@@ -30,9 +27,9 @@ function App() {
   }
 
 
-  // const totalCarrito = () => {
-  //   return carrito.reduce( (acc, item) => acc + )
-  // }
+  const totalCarrito = () => {
+    return carrito.reduce( (acc, item) => acc + item.precio * item.cantidad, 0 )
+  }
 
 
   return (
@@ -42,7 +39,8 @@ function App() {
         carrito, 
         agregarAlCarrito, 
         isInCart,
-        vaciarCarrito
+        vaciarCarrito,
+        totalCarrito
       } 
     }>
 

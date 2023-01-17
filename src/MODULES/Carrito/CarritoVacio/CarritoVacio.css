@@ -1,0 +1,16 @@
+.contenedorImg {
+    width: 50%;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+}
+.contenedorImg > h2 {
+    font-size: 3rem;
+    color: #711f31;
+}
+.contenedorImg > img {
+    width: 100%;
+    object-fit: contain;
+}
