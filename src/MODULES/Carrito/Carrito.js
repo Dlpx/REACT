@@ -15,8 +15,9 @@ const Carrito = () => {
             {
                 carrito && carrito.map( (el) => <CarritoElemento key={el.id} el={el}/> )
             }
+            {console.log(typeof(carrito))}
             {
-                carrito.lenght > 0
+                carrito
                 ?   <div className="contenedorBtn">
                         <button className="btn vaciar" onClick={vaciarCarrito}> Vaciar Carrito</button>
                         <button className="btn comprar"> Realizar el pago</button>

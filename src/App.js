@@ -19,7 +19,10 @@ function App() {
   }
 
   const isInCart = (id) =>{
-    return carrito.some(item => item.id === id)
+    return 
+      {
+        carrito && carrito.some(item => item.id === id)
+      }
   }
 
   const vaciarCarrito = () => {
