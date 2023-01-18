@@ -7,67 +7,38 @@ import Error404 from './MODULES/Error404/Error404';
 import ItemListContainer from './MODULES/ItemListContainer/ItemListContainer';
 import ItemDetailContainer from './MODULES/ItemDetailContainer/ItemDetailContainer';
 import Contacto from './MODULES/Contacto/Contacto';
-import { CartContext } from './CONTEXT/CartContext';
-import { useState } from 'react';
-
+import { CartProvider } from './CONTEXT/CartContext';
 
 function App() {
-  const [carrito, setCarrito] = useState([])
-
-  const agregarAlCarrito = (item) => {
-    setCarrito( [...carrito, item])
-  }
-
-  const isInCart = (id) =>{
-    return carrito && carrito.some(item => item.id === id)
-  }
-
-  const vaciarCarrito = () => {
-    setCarrito([])
-  }
-
-
-  const totalCarrito = () => {
-    return carrito.reduce( (acc, item) => acc + item.precio * item.cantidad, 0 )
-  }
+  
 
 
   return (
 
-    <CartContext.Provider value={ 
-      {
-        carrito, 
-        agregarAlCarrito, 
-        isInCart,
-        vaciarCarrito,
-        totalCarrito
-      } 
-    }>
+    <CartProvider>
 
 
-    <BrowserRouter>
-      <Header/>
-      
-      <Routes>
 
-        <Route path='/' element={ <Inicio /> }/>
-        <Route path='/inicio' element={ <Inicio /> }/>
-        <Route path='/carrito' element={ <Carrito /> }/>
-        <Route path='/productos' element={ <ItemListContainer  /> }/>
-        <Route path='/productos/:instrumento' element={ <ItemListContainer /> }/>
-        <Route path='/mostrar/:itemId' element={ <ItemDetailContainer /> }/>
-        <Route path='/contacto' element={ <Contacto /> }/>
-        <Route path='*' element={ <Error404 /> }/>
+      <BrowserRouter>
+        <Header/>
         
-      </Routes>
-      
-    </BrowserRouter>
-    
-    
-    
-    </CartContext.Provider>
+        <Routes>
+
+          <Route path='/' element={ <Inicio /> }/>
+          <Route path='/inicio' element={ <Inicio /> }/>
+          <Route path='/carrito' element={ <Carrito /> }/>
+          <Route path='/productos' element={ <ItemListContainer  /> }/>
+          <Route path='/productos/:instrumento' element={ <ItemListContainer /> }/>
+          <Route path='/mostrar/:itemId' element={ <ItemDetailContainer /> }/>
+          <Route path='/contacto' element={ <Contacto /> }/>
+          <Route path='*' element={ <Error404 /> }/>
+          
+        </Routes>
+        
+      </BrowserRouter>
 
     
+    </CartProvider>
   );
 }
 

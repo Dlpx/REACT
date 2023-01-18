@@ -8,8 +8,42 @@
     align-items: center;
     border-bottom: 1px solid black;
 }
-.contenedorElemento .imgElemento {
+.contenedorElemento .divLeft {
     width: 30%;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+}
+.contenedorElemento .divLeft > button {
+    width: 40px;
+    height: 40px;
+    font-size: 1.5rem;
+    padding: 5px;
+    background-color: transparent;
+    border: 1px solid #711f31;
+    border-radius: 10px;
+    color: #711f31;
+    cursor: pointer;
+    transition: all 100ms ease-in-out;
+}
+.contenedorElemento .divLeft > button:hover {
+    background-color: #711f31;
+    border: -2px solid #E0AF3A inset;
+}
+.contenedorElemento .divLeft > button * {
+    width: max-content;
+    line-height: 40px;
+    text-align: center;
+    color: #711f31;
+    transition: all 100ms ease-in-out;
+}
+.contenedorElemento .divLeft > button:hover * {
+    color: #E0AF3A;
+    font-weight: bold;
+}
+.contenedorElemento .divLeft .imgElemento {
+    width: 100%;
     padding: 30px;
 }
 .contenedorElemento .divMedio {

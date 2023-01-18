@@ -8,7 +8,7 @@ import "./ItemDetail.css";
 // id, instrumento, descripcion, marca, modelo, detalle, precio, imagen, stock
 
 const ItemDetail = ( {item} ) => {
-    const { agregarAlCarrito, isInCart } = useContext(CartContext)
+    const { agregarAlCarrito, isInCart, removerDelCarrito } = useContext(CartContext)
 
     const [cantidad, setCantidad] = useState(1)
 
@@ -45,6 +45,7 @@ const ItemDetail = ( {item} ) => {
                                     <div className="botones">
                                         <Link className="btnLink" to="/productos">Seguir Comprando</Link>
                                         <Link className="btnLink" to="/carrito">Ir a pagar</Link>
+                                        <button className="btnLink" onClick={() => removerDelCarrito(item.id)}>Quitar del carrito</button>
                                     </div>
                                 </div>
                             : <ItemCount 

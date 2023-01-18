@@ -1,11 +1,14 @@
 .navBar {
     height: inherit;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
 }
 .navBar .navList {
-    height: inherit;
+    height: fit-content;
     display: flex;
     flex-direction: row;
-    align-items: flex-end;
+    align-items: center;
     gap: 20px;
 }
 .navBar .navList .navItem {
