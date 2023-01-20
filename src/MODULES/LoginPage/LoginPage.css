@@ -1,0 +1,59 @@
+.contenedorLoginPage {
+    width: 100%;
+    height: 100vh;
+    background-color: #711f311b;
+    position: relative;
+}
+.contenedorLoginPage .contenedor {
+    width: 40%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translateX(-50%) translateY(-50%);
+    padding: 50px;
+    border-radius: 40px;
+    background-color: #711f31;
+}
+.contenedorLoginPage .contenedor .titulo{
+    color: #E0AF3A;
+    text-align: center;
+    border: none;
+    font-weight: bolder;
+}
+.contenedorLoginPage .contenedor .formulario {
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    gap: 20px;
+}
+.contenedorLoginPage .contenedor .formulario .input {
+    width: 100%;
+    font-size: 1.5rem;
+    padding: 10px;
+    border-radius: 10px;
+    background-color: rgba(255, 255, 255, 0.7);
+}
+.contenedorLoginPage .contenedor .formulario .boton {
+    font-size: 1.5rem;
+    padding: 10px;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all 100ms ease-in-out;
+    background-color: #e0ae3ae6;
+    align-self: center;
+}
+.contenedorContraseña{
+    display: flex;
+    width: 100%;
+}
+
+.true{
+    background-color: #1f7149;
+    transform: scale(1.1);
+}
+.false{
+    background-color: #711f31;
+    transform: scale(1.1);
+}

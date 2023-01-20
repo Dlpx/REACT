@@ -1,6 +1,6 @@
 import { useContext } from "react";
 import { RxTrash } from "react-icons/rx";
-import { CartContext } from "../../../CONTEXT/CartContext";
+import { CartContext } from "../../../CONTEXT/CartContext/CartContext";
 import "./CarritoElemento.css";
 
 

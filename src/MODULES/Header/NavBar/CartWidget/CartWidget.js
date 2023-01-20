@@ -4,7 +4,7 @@ import { styled } from '@mui/material/styles';
 import IconButton from '@mui/material/IconButton';
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import { useContext } from 'react';
-import { CartContext } from '../../../../CONTEXT/CartContext';
+import { CartContext } from '../../../../CONTEXT/CartContext/CartContext';
 
 const CartWidget = () => {
     const StyledBadge = styled(Badge)(() => ({

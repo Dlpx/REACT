@@ -1,5 +1,5 @@
 import { useContext } from "react";
-import { CartContext } from "../../CONTEXT/CartContext";
+import { CartContext } from "../../CONTEXT/CartContext/CartContext";
 import CarritoElemento from "./CarritoElemento/CarritoElemento";
 import "./Carrito.css";
 import CarritoVacio from "./CarritoVacio/CarritoVacio";

@@ -1,24 +1,43 @@
-.navBar {
+.contenedor{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: flex-end;
+    gap: 30px;
+}
+.contenedor .logOut {
+    width: fit-content;
+    height: fit-content;
+    padding: 7px;
+    border-radius: 10px;
+    text-align: center;
+    background-color: #E0AF3A;
+    color: #711f31;
+    font-weight: 400;
+    font-size: large;
+    cursor: pointer;
+}
+.contenedor .navBar {
     height: inherit;
     display: flex;
     flex-direction: column;
     justify-content: flex-end;
 }
-.navBar .navList {
+.contenedor .navBar .navList {
     height: fit-content;
     display: flex;
     flex-direction: row;
     align-items: center;
     gap: 20px;
 }
-.navBar .navList .navItem {
+.contenedor .navBar .navList .navItem {
     cursor: pointer;
     transition: all 150ms ease-in-out;
 }
-.navBar .navList .navItem:hover {
+.contenedor .navBar .navList .navItem:hover {
     transform: scale(1.1);
 }
-.navBar .navList .navItem .navLink {
+.contenedor .navBar .navList .navItem .navLink {
     color: #E0AF3A;
     font-weight: bold;
     font-size: 1.5rem;

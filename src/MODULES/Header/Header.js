@@ -4,6 +4,8 @@ import NavBar from "./NavBar/NavBar";
 
 
 const Header = () => {
+
+
     return(
         <div className="headerContainer">
             <Link className="logo" to="/inicio">MAGIC TOUCH</Link>
