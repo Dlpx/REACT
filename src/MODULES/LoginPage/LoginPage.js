@@ -22,6 +22,7 @@ const LoginPage = () => {
     }
 
     const handleSubmit = (e) => {
+        setVerContraseña(false)
         e.preventDefault()
         login(valores)
         console.log(usuario)
@@ -51,7 +52,7 @@ const LoginPage = () => {
                     />
                     <div className="contenedorContraseña">
                         <input
-                            type="password"
+                            type={verContraseña ? 'text' : 'password'}
                             className="input"
                             placeholder="Contraseña"
                             name="contraseña"
