@@ -1,9 +1,10 @@
 import { useState, useEffect } from "react"
-import { pedirDatos } from "../../HELPERS/pedirDatos"
 import { useParams } from "react-router-dom"
 import ItemList from "./ItemList"
 import Categorias from "../Categorias/Categorias"
 import CircularIndeterminate from "./CircularIndeterminate"
+import { collection, getDocs } from "firebase/firestore"
+import { db } from "../../FIREBASE/Config"
 
 
 
@@ -15,22 +16,22 @@ const ItemListContainer = () => {
 
 
     useEffect(() => {
-        pedirDatos()
-        .then( (res) => {
-            if(instrumento){
-                setProductos(res.filter(prod => prod.instrumento === instrumento))
+        setLoading(true)
+        // 1. Armar referencia: 
+        const refProductos = collection(db, "productos")
+        // 2. Realizar peticion asincronica
+        getDocs(refProductos)
+            .then((res) => {
+                setProductos( res.docs.map( (doc) => {
+                    return {
+                        ...doc.data(),
+                        id: doc.id
+                    }
+                } ) )
                 setLoading(false)
-            } else {
-                setLoading(false)
-                setProductos(res)
-            }
-            
-        })
-        .catch( (err) => {
-                setLoading(false)
-                console.log(err)
-        })
+            })
     },[instrumento])
+
 
 
     return(
