@@ -2,15 +2,17 @@
 
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import { pedirItemPorId } from "../../HELPERS/pedirDatos";
 import ItemDetail from "./ItemDetail";
 import { doc, getDoc } from "firebase/firestore";
 import { db } from "../../FIREBASE/Config";
 
 
 const ItemDetailContainer = () => {
-    const [item, setItem] = useState(null)
+
+    const [item, setItem] = useState({})
     const {itemId} = useParams()
+    console.log(item)
+    console.log(itemId)
 
 
     useEffect(() => {

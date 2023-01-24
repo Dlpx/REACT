@@ -6,8 +6,9 @@ import "./LoginPage.css";
 
 
 const LoginPage = () => {
-
+    
     const {usuario, login} = useContext(LoginContext)
+    const [verContraseña, setVerContraseña] = useState(false)
 
     const [valores, setValores] = useState({
         usuario: '',
@@ -25,11 +26,9 @@ const LoginPage = () => {
         setVerContraseña(false)
         e.preventDefault()
         login(valores)
-        console.log(usuario)
     }
 
 
-    const [verContraseña, setVerContraseña] = useState(false)
 
     const handleVerContraseña = () => {
         setVerContraseña(!verContraseña)

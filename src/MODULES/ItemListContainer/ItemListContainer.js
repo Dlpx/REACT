@@ -3,7 +3,7 @@ import { useParams } from "react-router-dom"
 import ItemList from "./ItemList"
 import Categorias from "../Categorias/Categorias"
 import CircularIndeterminate from "./CircularIndeterminate"
-import { collection, getDocs } from "firebase/firestore"
+import { collection, getDocs, query, where} from "firebase/firestore"
 import { db } from "../../FIREBASE/Config"
 
 
@@ -19,8 +19,11 @@ const ItemListContainer = () => {
         setLoading(true)
         // 1. Armar referencia: 
         const refProductos = collection(db, "productos")
+        const q = instrumento
+                    ? query(refProductos, where("instrumento", "==", instrumento) )
+                    : refProductos
         // 2. Realizar peticion asincronica
-        getDocs(refProductos)
+        getDocs(q)
             .then((res) => {
                 setProductos( res.docs.map( (doc) => {
                     return {
@@ -28,8 +31,9 @@ const ItemListContainer = () => {
                         id: doc.id
                     }
                 } ) )
-                setLoading(false)
             })
+            .catch((err) => {console.log(err)})
+            .finally( () => {setLoading(false)})
     },[instrumento])
 
 
