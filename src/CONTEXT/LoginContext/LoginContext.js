@@ -1,6 +1,7 @@
 import { createContext, useEffect, useState } from "react";
 import { createUserWithEmailAndPassword, signInWithEmailAndPassword, onAuthStateChanged, signOut } from "firebase/auth"
 import { auth } from "../../FIREBASE/Config";
+import { Navigate } from "react-router-dom";
 
 
 
@@ -60,6 +61,7 @@ export const LoginProvider = ({children}) => {
                     logged: true,
                     error: null
                 })
+                return <Navigate to="/inicio" /> 
             })
             .catch((err) => {
                 console.log(err)

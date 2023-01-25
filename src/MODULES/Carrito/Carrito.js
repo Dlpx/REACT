@@ -3,6 +3,7 @@ import { CartContext } from "../../CONTEXT/CartContext/CartContext";
 import CarritoElemento from "./CarritoElemento/CarritoElemento";
 import "./Carrito.css";
 import CarritoVacio from "./CarritoVacio/CarritoVacio";
+import { Link } from "react-router-dom";
 
 
 const Carrito = () => {
@@ -23,7 +24,7 @@ const Carrito = () => {
                         <h4>Total: { new Intl.NumberFormat('en-AR', {style: 'currency', currency: 'ARS', maximumFractionDigits: 0}).format(totalCarrito()) } </h4>
                         <div className="contenedorBtn">
                             <button className="btn vaciar" onClick={vaciarCarrito}> Vaciar Carrito</button>
-                            <button className="btn comprar"> Realizar el pago</button>
+                            <Link to='/checkout' className="btn comprar"> Realizar el pago</Link>
                         </div>
                     </div>
                 :   <CarritoVacio />

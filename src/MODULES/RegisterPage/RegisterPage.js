@@ -1,6 +1,6 @@
 import { Switch } from "@mui/material";
 import { useContext, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, Navigate } from "react-router-dom";
 import { LoginContext } from "../../CONTEXT/LoginContext/LoginContext";
 import "./RegisterPage.css";
 
@@ -28,13 +28,12 @@ const RegisterPage = () => {
         register(valores)
     }
 
-
-
     const handleVerContraseña = () => {
         setVerContraseña(!verContraseña)
-        console.log(verContraseña)
     }
-
+    if(usuario.logged === true){
+        return <Navigate to="/inicio"/>
+    }
 
     return(
         <div className="contenedorLoginPage">

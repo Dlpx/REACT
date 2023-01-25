@@ -6,6 +6,9 @@ import ItemListContainer from '../MODULES/ItemListContainer/ItemListContainer';
 import ItemDetailContainer from '../MODULES/ItemDetailContainer/ItemDetailContainer';
 import Contacto from '../MODULES/Contacto/Contacto';
 import { Routes, Route } from 'react-router-dom';
+import Checkout from '../MODULES/Chechout/Checkout';
+import RegisterPage from '../MODULES/RegisterPage/RegisterPage';
+import CheckoutDone from '../MODULES/Chechout/CheckoutDone/CheckoutDone';
 
 
 
@@ -21,8 +24,10 @@ const PrivateRoutes = () => {
                 <Route path='/productos/:instrumento' element={ <ItemListContainer/> } />
                 <Route path='/mostrar/:itemId' element={ <ItemDetailContainer/> } />
                 <Route path='/contacto' element={ <Contacto/> } />
+                <Route path='/checkout' element={ <Checkout/> } />
+                <Route path='/done' element={ <CheckoutDone/> } />
                 <Route path='/login' element={ <Inicio/> } />
-                <Route path='/register' element={ <Inicio/> } />
+                <Route path='/register' element={ <RegisterPage/> } />
                 <Route path='*' element={ <Error404/>} />
             </Routes>
         </>

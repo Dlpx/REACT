@@ -1,6 +1,6 @@
 import { Switch } from "@mui/material";
 import { useContext, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, Navigate } from "react-router-dom";
 import { LoginContext } from "../../CONTEXT/LoginContext/LoginContext";
 import "./LoginPage.css";
 
@@ -26,14 +26,16 @@ const LoginPage = () => {
     const handleSubmit = (e) => {
         e.preventDefault()
         login(valores)
-        console.log(usuario)
     }
 
 
 
     const handleVerContraseña = () => {
         setVerContraseña(!verContraseña)
-        console.log(verContraseña)
+    }
+    
+    if(usuario.logged === true){
+        return <Navigate to="/inicio"/>
     }
 
 
@@ -66,7 +68,7 @@ const LoginPage = () => {
                     <button className="boton" disabled={loading}>{loading ? 'Ingresando' : 'Ingresar'}</button>
                     {usuario.error && <p className='error'>{usuario.error}</p>}
                 </form>
-            <Link to='/register' className="login-register">Crear una cuenta</Link>
+                <Link to='/register' className="login-register">Crear una cuenta</Link>
             </div>
         </div>
     )
