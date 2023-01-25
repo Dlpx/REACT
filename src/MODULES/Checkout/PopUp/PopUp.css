@@ -1,0 +1,58 @@
+.window-popup{
+    z-index: 10;
+    width: 100%;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.6);
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+.window-popup .contenedor-popup{
+    width: 50%;
+    height: fit-content;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translateX(-50%) translateY(-50%);
+    padding: 20px;
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    border: 1px solid #E0AF3A;
+    border-radius: 20px;
+    box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.65);
+}
+.window-popup .contenedor-popup > h3{
+    color: #711f31;
+    font-size: 2rem;
+}
+.window-popup .contenedor-popup > strong{
+    align-self: flex-start;
+}
+.window-popup .contenedor-popup .contenedor-asides{
+    width: 90%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    border-top: 1px solid black;
+    padding: 10px;
+}
+.window-popup .contenedor-popup .contenedor-asides .items-compra-screen{
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+.window-popup .contenedor-popup .contenedor-asides .items-compra-screen .contenedor-resumen{
+    display: flex;
+    flex-direction: column;
+}
+.window-popup .contenedor-popup .contenedor-asides .items-compra-screen .contenedor-resumen .item-contenedor{
+    display: flex;
+    flex-direction: row;
+}
+.window-popup .contenedor-popup .contenedor-asides .items-compra-screen .contenedor-resumen .item-contenedor .img-item{
+    width: 20px;
+}

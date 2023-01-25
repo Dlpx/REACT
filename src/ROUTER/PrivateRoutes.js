@@ -6,7 +6,7 @@ import ItemListContainer from '../MODULES/ItemListContainer/ItemListContainer';
 import ItemDetailContainer from '../MODULES/ItemDetailContainer/ItemDetailContainer';
 import Contacto from '../MODULES/Contacto/Contacto';
 import { Routes, Route } from 'react-router-dom';
-import Checkout from '../MODULES/Chechout/Checkout';
+import Checkout from '../MODULES/Checkout/Checkout';
 import RegisterPage from '../MODULES/RegisterPage/RegisterPage';
 
 
