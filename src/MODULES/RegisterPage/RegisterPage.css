@@ -57,10 +57,3 @@
     background-color: #711f31;
     transform: scale(1.1);
 }
-
-.error {
-    width: 100%;
-    color: white;
-    font-weight: bold;
-    text-align: center;
-}

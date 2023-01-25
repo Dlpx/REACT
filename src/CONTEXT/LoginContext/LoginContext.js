@@ -1,50 +1,91 @@
-import { createContext, useState } from "react";
-
-const MOCK_USUARIOS = [
-    {
-        usuario: 'dlpx94',
-        contraseña: 'admin'
-    }
-]
+import { createContext, useEffect, useState } from "react";
+import { createUserWithEmailAndPassword, signInWithEmailAndPassword, onAuthStateChanged, signOut } from "firebase/auth"
+import { auth } from "../../FIREBASE/Config";
 
 
 export const LoginContext = createContext()
 
 export const LoginProvider = ({children}) => {
-
+    
+    const [loading, setLoading] = useState(false)
     const [usuario, setUsuario] = useState({
-        usuario: null,
+        email: null,
         logged: false,
         error: null
     })
 
     const login = (values) => {
-        const match = MOCK_USUARIOS.find(usuario => usuario.usuario === values.usuario && usuario.contraseña === values.contraseña)
+        setLoading(true)
 
-        if (match) {
-            setUsuario({
-                usuario: match.usuario,
-                logged: true,
-                error: null
+        signInWithEmailAndPassword(auth, values.email, values.contraseña)
+            .then((userCredential) => {
+                setUsuario({
+                    email: userCredential.user.email,
+                    logged: true,
+                    error: null
+                })
+            })    
+            .catch((err) => {
+                console.log(err)
+                setUsuario({
+                    email: null,
+                    logged: false,
+                    error: err.message
+                })
             })
-        } else {
-            setUsuario({
-                usuario: '',
-                logged: false,
-                error: 'Usuario y/o contraseña incorrectos'
-            })
-        }
+            .finally(() => setLoading(false))
     }
     const logOut = () => {
-        setUsuario({
-            usuario: null,
-            logged: false,
-            error: null
-        })
-        console.log(usuario)
+        signOut(auth)
+            .then(() => {
+                setUsuario({
+                    email: null,
+                    logged: false,
+                    error: null
+                })
+            })
+        
     }
+
+
+    const register = (values) => {
+        setLoading(true)
+
+        createUserWithEmailAndPassword(auth, values.email, values.contraseña)
+            .then((userCredential) => {
+                setUsuario({
+                    email: userCredential.user.email,
+                    logged: true,
+                    error: null
+                })
+            })
+            .catch((err) => {
+                console.log(err)
+                setUsuario({
+                    email: null,
+                    logged: false,
+                    error: err.message
+                })
+            })
+            .finally(() => setLoading(false))
+    }
+
+    useEffect( () => {
+        onAuthStateChanged(auth, (user) => {
+            if(user){
+                setUsuario({
+                    email: user.email,
+                    logged: true,
+                    error: null
+                })
+            } else {
+                logOut()
+            }
+        })
+    }, [])
+
     return (
-        <LoginContext.Provider value={{usuario, login, logOut}}>
+        <LoginContext.Provider value={{usuario, login, logOut, register, loading}}>
             {children}
         </LoginContext.Provider>
     )

@@ -1,13 +1,13 @@
 import { Switch } from "@mui/material";
 import { useContext, useState } from "react";
 import { LoginContext } from "../../CONTEXT/LoginContext/LoginContext";
-import "./LoginPage.css";
+import "./RegisterPage.css";
 
 
 
-const LoginPage = () => {
-    
-    const {usuario, login, loading} = useContext(LoginContext)
+const RegisterPage = () => {
+
+    const {usuario, register, loading} = useContext(LoginContext)
     const [verContraseña, setVerContraseña] = useState(false)
 
     const [valores, setValores] = useState({
@@ -22,10 +22,9 @@ const LoginPage = () => {
         })
     }
 
-    const handleSubmit = (e) => {
+    const handleSubmitRegister = (e) => {
         e.preventDefault()
-        login(valores)
-        console.log(usuario)
+        register(valores)
     }
 
 
@@ -39,12 +38,12 @@ const LoginPage = () => {
     return(
         <div className="contenedorLoginPage">
             <div className="contenedor">
-                <h1 className="titulo">Ingresar</h1>
-                <form className="formulario" onSubmit={handleSubmit}>
+                <h1 className="titulo">Registrarse</h1>
+                <form className="formulario" onSubmit={handleSubmitRegister}>
                     <input
                         type="email"
                         className="input"
-                        placeholder="Usuario"
+                        placeholder="Correo"
                         name="email"
                         value={valores.email}
                         onChange={handleInputChange}
@@ -62,7 +61,7 @@ const LoginPage = () => {
                             <Switch onClick={handleVerContraseña} estado={verContraseña} />
                         </div>
                     </div>
-                    <button className="boton" disabled={loading}>{loading ? 'Ingresando' : 'Ingresar'}</button>
+                    <button className="boton" disabled={loading}>{loading ? 'Cargando...' : 'Registrarme'}</button>
                     {usuario.error && <p className='error'>{usuario.error}</p>}
                 </form>
             </div>
@@ -72,4 +71,4 @@ const LoginPage = () => {
 
 
 
-export default LoginPage;
+export default RegisterPage;
