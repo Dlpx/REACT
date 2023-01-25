@@ -1,5 +1,6 @@
 import { Switch } from "@mui/material";
 import { useContext, useState } from "react";
+import { Link } from "react-router-dom";
 import { LoginContext } from "../../CONTEXT/LoginContext/LoginContext";
 import "./RegisterPage.css";
 
@@ -63,6 +64,7 @@ const RegisterPage = () => {
                     </div>
                     <button className="boton" disabled={loading}>{loading ? 'Cargando...' : 'Registrarme'}</button>
                     {usuario.error && <p className='error'>{usuario.error}</p>}
+                    <Link to='/login' className="login-register">Ya tengo una cuenta</Link>
                 </form>
             </div>
         </div>
