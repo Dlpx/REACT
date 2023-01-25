@@ -1,4 +1,4 @@
-import { BrowserRouter} from 'react-router-dom';
+import { BrowserRouter } from 'react-router-dom';
 import { useContext } from 'react';
 import { LoginContext } from '../CONTEXT/LoginContext/LoginContext';
 import PublicRoutes from './PublicRoutes';
@@ -14,8 +14,9 @@ const AppRouter = () => {
         <BrowserRouter>
 
           {usuario.logged 
-            ? <PrivateRoutes/> 
-            : <PublicRoutes />}
+            ? <PrivateRoutes/>
+            : <PublicRoutes />
+          }
           
         </BrowserRouter>
     )

@@ -62,7 +62,9 @@ const RegisterPage = () => {
                             <Switch onClick={handleVerContraseña} estado={verContraseña} />
                         </div>
                     </div>
-                    <button className="boton" disabled={loading}>{loading ? 'Cargando...' : 'Registrarme'}</button>
+                    <button className="boton" disabled={loading}>
+                        {loading ? 'Cargando...' : 'Registrarme'}
+                    </button>
                     {usuario.error && <p className='error'>{usuario.error}</p>}
                     <Link to='/login' className="login-register">Ya tengo una cuenta</Link>
                 </form>

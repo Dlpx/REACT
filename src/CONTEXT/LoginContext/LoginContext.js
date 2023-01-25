@@ -3,10 +3,12 @@ import { createUserWithEmailAndPassword, signInWithEmailAndPassword, onAuthState
 import { auth } from "../../FIREBASE/Config";
 
 
+
 export const LoginContext = createContext()
 
 export const LoginProvider = ({children}) => {
     
+
     const [loading, setLoading] = useState(false)
     const [usuario, setUsuario] = useState({
         email: null,
