@@ -10,7 +10,7 @@ import { collection, addDoc } from "firebase/firestore";
 const Checkout = () => {
 
     const {carrito, totalCarrito, vaciarCarrito} = useContext(CartContext)
-    const {resumen, setResumen} = useState(null)
+    const [resumen, setResumen] = useState(null)
 
     const [values, setValues] = useState({
         nombre: '',
@@ -39,8 +39,11 @@ const Checkout = () => {
         const refOrders = collection(db, "orders")
         addDoc(refOrders, orden)
             .then((doc) => {
-                setResumen(doc.id)
-                console.log(resumen)
+                setResumen({
+                    ...orden,
+                    id: doc.id
+                })
+                
             })
             .catch((err) => console.log(err))
     }
@@ -86,6 +89,30 @@ const Checkout = () => {
                     />
                     <button>Enviar</button>
                 </form>
+            </div>
+            
+            <div className="contenedor-popup">
+                <h3>Compra Realizada</h3>
+                <strong>ID de compra: {resumen && resumen.id} </strong>
+                <div className="contenedor-datos">
+                    <h4>Datos del comprador</h4>
+                    <p>Nombre: {resumen && resumen.cliente.nombre}</p>
+                    <p>Direccion de entrega: {resumen && resumen.cliente.direccion}</p>
+                    <p>Telefono de contacto {resumen && resumen.cliente.telefono}</p>
+                    <p>Recibiras mas informacion en: {resumen && resumen.cliente.email}</p>
+                </div>
+                <div className="contenedor-items-compra">
+                    <h4>Resumen de la compra</h4>
+                    <div>
+                        {
+                            resumen.items.map( (item) => {
+                                console.log(item.instrumento);
+                                <p>Item: {item.instrumento}</p>
+                            })
+                        }
+                    </div>
+
+                </div>
             </div>
         </div>
     )
