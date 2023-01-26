@@ -1,8 +1,9 @@
 import "./NavBar.css"
 import { Link } from "react-router-dom";
 import CartWidget from "./CartWidget/CartWidget";
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { LoginContext } from "../../../CONTEXT/LoginContext/LoginContext";
+import MiniCarrito from "../MiniCarrito/MiniCarrito";
 
 
 
@@ -10,6 +11,11 @@ const NavBar = () => {
 
 
     const {logOut} = useContext(LoginContext)
+    const [showCarrito, setShowCarrito] = useState(false)
+
+    const handleMiniCarrito = () => {
+        setShowCarrito(!showCarrito)
+    }
 
 
     return(
@@ -27,8 +33,11 @@ const NavBar = () => {
                         <Link className="navLink" to="/contacto">Contacto</Link>
                     </li>
                     <li className="navItem">
-                        <Link className="navLink" to="/carrito"><CartWidget/></Link>
+                        <Link className="navLink" to="/carrito" onMouseEnter={handleMiniCarrito} onMouseLeave={handleMiniCarrito}><CartWidget/></Link>
                     </li>
+                    {
+                        showCarrito && <MiniCarrito />
+                    }
                 </ul>
             </nav>
         </div>
