@@ -8,6 +8,7 @@ import Contacto from '../MODULES/Contacto/Contacto';
 import { Routes, Route } from 'react-router-dom';
 import Checkout from '../MODULES/Checkout/Checkout';
 import RegisterPage from '../MODULES/RegisterPage/RegisterPage';
+import LoginPage from '../MODULES/LoginPage/LoginPage';
 
 
 
@@ -24,7 +25,7 @@ const PrivateRoutes = () => {
                 <Route path='/mostrar/:itemId' element={ <ItemDetailContainer/> } />
                 <Route path='/contacto' element={ <Contacto/> } />
                 <Route path='/checkout' element={ <Checkout/> } />
-                <Route path='/login' element={ <Inicio/> } />
+                <Route path='/login' element={ <LoginPage/> } />
                 <Route path='/register' element={ <RegisterPage/> } />
                 <Route path='*' element={ <Error404/>} />
             </Routes>

@@ -11,7 +11,7 @@ import PopUp from "./PopUp/PopUp";
 
 const Checkout = () => {
 
-    const {carrito, totalCarrito} = useContext(CartContext)
+    const {carrito, totalCarrito, vaciarCarrito} = useContext(CartContext)
     const [resumen, setResumen] = useState(null)
     const [popUp, setPopUp] = useState(false)
 
@@ -47,6 +47,7 @@ const Checkout = () => {
                     id: doc.id
                 })
                 setPopUp(true)
+                vaciarCarrito()
             })
             .catch((err) => console.log(err))
     }

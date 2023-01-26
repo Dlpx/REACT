@@ -26,7 +26,7 @@ const PopUp = ({resumen}) => {
                                             <div key={item.id} className="item-contenedor">
                                                 <img src={item.imagen} className="img-item" alt={item.instrumento}/>
                                                 <div className="datos-item">
-                                                    <p>Item: {item.instrumento} | Marca: {item.marca}</p>
+                                                    <p>Item: {item.instrumento} | Marca: {item.marca} x {item.cantidad}</p>
                                                     <small>Precio parcial: {item.precio * item.cantidad}</small>
                                                 </div>
                                             </div>
@@ -38,7 +38,7 @@ const PopUp = ({resumen}) => {
                             </div>
                         </div>
                     </div>
-                    <Link to='/inicio'> Volver a Inicio </Link> 
+                    <Link to='/inicio' className="btn-volver-inicio"> Volver a Inicio </Link> 
                 </div>
             </div>
     )
