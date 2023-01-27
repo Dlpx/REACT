@@ -1,23 +1,16 @@
-import "./PopUpAlert.css"
 
 
-
-const PopUpAlert = ({ outOfStock }) => {
-    console.log(outOfStock)
-
-    return(
-        <div className="window-popup">
-            <div className="contenedor-popup">
-                <h3>Uno o varios items estan fuera de stock!!</h3>
-                {
-                    outOfStock.forEach((item) => {<strong key={item.id}>Item: {item.instrumento}| {item.marca}| {item.modelo && item.modelo}</strong>})
-                }
-                <button className="btn-volver-inicio">Volver atras</button>
-            </div>
+export default function PopUpAlert( {outOfStock} ) {
+  return (
+    <div className="window-popup">
+        <div className="contenedor-popup">
+            <h3>Compra denegada</h3>
+            <strong>Uno o mas items estan fuera de stock</strong>
+            {outOfStock.map( item => {
+                return <p key={item.id}>{item.instrumento} {item.marca} </p>
+            } )}
+            
         </div>
-    )
+    </div>
+  );
 }
-
-
-
-export default PopUpAlert;

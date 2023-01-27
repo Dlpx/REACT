@@ -15,7 +15,7 @@ const Checkout = () => {
     const {carrito, totalCarrito, vaciarCarrito} = useContext(CartContext)
     const [resumen, setResumen] = useState(null)
     const [popUp, setPopUp] = useState(false)
-    const [popUpAlert, setPopUpAlert] = useState(false)
+    const [out, setOut] = useState([])
 
 
     const [values, setValues] = useState({
@@ -80,10 +80,12 @@ const Checkout = () => {
                         .catch((err) => console.log(err))
                 })
         } else {
-            setPopUpAlert(true)
+            setOut(outOfStock)
         }
     }
     
+
+
 
 
     return(
@@ -92,7 +94,7 @@ const Checkout = () => {
                 popUp && <PopUp resumen={resumen} />
             }
             {
-                popUpAlert ? <PopUpAlert outOfStock={outOfStock} /> : console.log(outOfStock)
+                out.length >= 1 && <PopUpAlert outOfStock={out} />
             }
             <div className="checkout">
                 <h1>CheckOut</h1>
