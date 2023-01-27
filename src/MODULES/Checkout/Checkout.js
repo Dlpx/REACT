@@ -2,8 +2,9 @@ import { useContext, useState } from "react";
 import { CartContext } from "../../CONTEXT/CartContext/CartContext";
 import "./Checkout.css";
 import { db } from "../../FIREBASE/Config";
-import { collection, addDoc } from "firebase/firestore";
+import { collection, writeBatch, documentId, getDocs, query, where, addDoc } from "firebase/firestore";
 import PopUp from "./PopUp/PopUp";
+import PopUpAlert from "./PopUpAlert/PopUpAlert";
 
 
 
@@ -14,6 +15,8 @@ const Checkout = () => {
     const {carrito, totalCarrito, vaciarCarrito} = useContext(CartContext)
     const [resumen, setResumen] = useState(null)
     const [popUp, setPopUp] = useState(false)
+    const [popUpAlert, setPopUpAlert] = useState(false)
+
 
     const [values, setValues] = useState({
         nombre: '',
@@ -21,6 +24,7 @@ const Checkout = () => {
         telefono: '',
         email: ''
     })
+    
     
 
     const handleInputChange = (e) => {
@@ -30,7 +34,7 @@ const Checkout = () => {
         })
     }
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault()
 
         const orden = {
@@ -39,17 +43,45 @@ const Checkout = () => {
             total: totalCarrito()
         }
 
-        const refOrders = collection(db, "orders")
-        addDoc(refOrders, orden)
-            .then((doc) => {
-                setResumen({
-                    ...orden,
-                    id: doc.id
+        const batch = writeBatch(db)
+        const refOrders = collection(db, 'orders')
+        const refProductos = collection(db, 'productos')
+
+
+        const outOfStock = []
+
+        const refItems = query( refProductos, where( documentId(), 'in', carrito.map(prod => prod.id) ) )
+        const productos = await getDocs(refItems)
+
+        productos.docs.forEach((doc) => {
+            const item = carrito.find(item => item.id === doc.id)
+
+            if ( doc.data().stock >= item.cantidad ) {
+                batch.update(doc.ref, {
+                    stock: doc.data().stock - item.cantidad
                 })
-                setPopUp(true)
-                vaciarCarrito()
-            })
-            .catch((err) => console.log(err))
+            } else {
+                outOfStock.push(item)
+            }
+        })
+
+        if (outOfStock.length === 0) {
+            batch.commit()
+                .then(() => {
+                    addDoc(refOrders, orden)
+                        .then((doc) => {
+                            setResumen({
+                                ...orden,
+                                id: doc.id
+                            })
+                            setPopUp(true)
+                            vaciarCarrito()
+                        })
+                        .catch((err) => console.log(err))
+                })
+        } else {
+            setPopUpAlert(true)
+        }
     }
     
 
@@ -58,6 +90,9 @@ const Checkout = () => {
         <div>
             {
                 popUp && <PopUp resumen={resumen} />
+            }
+            {
+                popUpAlert ? <PopUpAlert outOfStock={outOfStock} /> : console.log(outOfStock)
             }
             <div className="checkout">
                 <h1>CheckOut</h1>

@@ -14,7 +14,7 @@ const MiniCarrito = () => {
         <div className="miniCarrito">
             <h3>Carrito</h3>
             {
-                carrito.length > 1 
+                carrito.length > 0 
                     ? carrito.map( (item) => {
                         return(
                             <div key={item.id} className="mini-producto">
