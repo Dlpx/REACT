@@ -39,17 +39,7 @@
     font-size: 2rem;
     text-align: right;
 }
-.contenedorItemDetail .btnVolver {
-    margin-top: 50px;
-    width: fit-content;
-    padding: 10px;
-    border-radius: 10px;
-    background-color: #711f31;
-    color: #E0AF3A;
-    font-size: 1rem;
-    font-weight: bold;
-    cursor: pointer;
-}
+
 .contenedorItemDetail .contenedorImgAside .contenedorAside .contenedorItemCount {
     width: 100%;
     display: flex;
@@ -74,18 +64,4 @@
     flex-direction: row;
     justify-content: center;
     gap: 20px;
-}
-.contenedorItemDetail .contenedorImgAside .contenedorAside .contenedorItemCount .botones .btnLink{
-    background-color: #E0AF3A;
-    font-size: 1rem;
-    padding: 10px;
-    border-radius: 10px;
-    border: 1px solid black;
-    cursor: pointer;
-    transition: all 100ms ease-in-out;
-}
-.contenedorItemDetail .contenedorImgAside .contenedorAside .contenedorItemCount .botones .btnLink:hover{
-    background-color: #E0AF3A;
-    box-shadow: 2px 2px 2px #000000;
-    transform: scale(1.05);
 }

@@ -14,28 +14,3 @@
     justify-content: flex-start;
     gap: 20px;
 }
-.contactoContainer .formulario > input {
-    width: 50%;
-    height: fit-content;
-    padding: 10px;
-    border: 1px solid black;
-    border-radius: 10px;
-    font-size: 1.2rem;
-}
-.contactoContainer .formulario button {
-    width: fit-content;
-    height: fit-content;
-    padding: 15px;
-    border: 1px solid #E0AF3A;
-    border-radius: 10px;
-    background-color: transparent;
-    cursor: pointer;
-    transition: all 100ms ease-in-out;
-}
-.contactoContainer .formulario button:hover {
-    border: 2px solid #E0AF3A;
-    background-color: #711f31;
-    transform: scale(1.1);
-    color: #E0AF3A;
-    font-weight: bold;
-}

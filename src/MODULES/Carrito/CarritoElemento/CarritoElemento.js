@@ -14,7 +14,7 @@ const CarritoElemento = ({el}) => {
     return(
         <div className="contenedorElemento">
             <div className="divLeft">
-                <button onClick={() => removerDelCarrito(el.id)}><RxTrash/></button>
+                <button className="btn" onClick={() => removerDelCarrito(el.id)}><RxTrash/></button>
                 <img className="imgElemento"  src={el.imagen}/>
             </div>
             <div className="divMedio">

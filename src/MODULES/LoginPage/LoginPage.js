@@ -46,29 +46,29 @@ const LoginPage = () => {
                 <form className="formulario" onSubmit={handleSubmit}>
                     <input
                         type="email"
-                        className="input"
                         placeholder="Usuario"
                         name="email"
                         value={valores.email}
                         onChange={handleInputChange}
+                        className="input-form input-transparent"
                     />
                     <div className="contenedorContraseña">
                         <input
                             type={verContraseña ? 'text' : 'password'}
-                            className="input"
                             placeholder="Contraseña"
                             name="contraseña"
                             value={valores.contraseña}
                             onChange={handleInputChange}
+                            className="input-form input-transparent"
                         />
                         <div>
                             <Switch onClick={handleVerContraseña} estado={verContraseña} />
                         </div>
                     </div>
-                    <button className="boton" disabled={loading}>{loading ? 'Ingresando' : 'Ingresar'}</button>
+                    <button className="btn btn-primario" disabled={loading}>{loading ? 'Ingresando' : 'Ingresar'}</button>
                     {usuario.error && <p className='error'>{usuario.error}</p>}
                 </form>
-                <Link to='/register' className="login-register">Crear una cuenta</Link>
+                <Link to='/register' className="register">Crear una cuenta</Link>
             </div>
         </div>
     )

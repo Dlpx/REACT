@@ -24,7 +24,7 @@ const ItemCount = ( {cantidad, setCantidad, max, onAdd} ) => {
                 <button 
                     onClick={handleRestar}
                     disabled={cantidad === 1} 
-                    className={`btn ${cantidad > 1 ? 'enabled' : 'disabled'}`}> 
+                    className={`${cantidad > 1 ? 'btn btn-primario' : 'disabled'}`}> 
                         <RemoveOutlinedIcon /> 
                 </button>
 
@@ -33,12 +33,12 @@ const ItemCount = ( {cantidad, setCantidad, max, onAdd} ) => {
                 <button 
                     onClick={handleSumar}
                     disabled={cantidad === max} 
-                    className={`btn ${cantidad === max ? 'disabled' : 'enabled'}`}> 
+                    className={`${cantidad === max ? 'disabled ' : 'btn btn-primario'}`}> 
                         <AddOutlinedIcon /> 
                 </button>
             </div>
             
-            <button onClick={onAdd} className="añadirCarrito"> Añadir al carrito</button>
+            <button onClick={onAdd} className="btn btn-secundario contraste"> Añadir al carrito</button>
         </div>
     )
 }

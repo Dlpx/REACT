@@ -42,7 +42,7 @@ const RegisterPage = () => {
                 <form className="formulario" onSubmit={handleSubmitRegister}>
                     <input
                         type="email"
-                        className="input"
+                        className="input-form input-transparent"
                         placeholder="Correo"
                         name="email"
                         value={valores.email}
@@ -51,7 +51,7 @@ const RegisterPage = () => {
                     <div className="contenedorContraseña">
                         <input
                             type={verContraseña ? 'text' : 'password'}
-                            className="input"
+                            className="input-form input-transparent"
                             placeholder="Contraseña"
                             name="contraseña"
                             value={valores.contraseña}
@@ -61,11 +61,11 @@ const RegisterPage = () => {
                             <Switch onClick={handleVerContraseña} estado={verContraseña} />
                         </div>
                     </div>
-                    <button className="boton" disabled={loading}>
+                    <button className="btn btn-primario" disabled={loading}>
                         {loading ? 'Cargando...' : 'Registrarme'}
                     </button>
                     {usuario.error && <p className='error'>{usuario.error}</p>}
-                    <Link to='/login' className="login-register">Ya tengo una cuenta</Link>
+                    <Link to='/login' className="register">Ya tengo una cuenta</Link>
                 </form>
             </div>
         </div>

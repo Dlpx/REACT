@@ -10,7 +10,7 @@ import MiniCarrito from "../MiniCarrito/MiniCarrito";
 const NavBar = () => {
 
 
-    const {logOut} = useContext(LoginContext)
+    const {logOut, usuario} = useContext(LoginContext)
     const [showCarrito, setShowCarrito] = useState(false)
 
     const handleMiniCarrito = () => {
@@ -20,7 +20,7 @@ const NavBar = () => {
 
     return(
         <div className="contenedor">
-            <button className="logOut" onClick={logOut}>LogOut</button>
+            <button className="btn btn-primario" onClick={logOut}><strong>Salir de</strong> {usuario.email}</button>
             <nav className="navBar">
                 <ul className="navList">
                     <li className="navItem">

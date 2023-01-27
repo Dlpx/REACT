@@ -43,9 +43,9 @@ const ItemDetail = ( {item} ) => {
                             ?   <div className="isNotInCart">
                                     <p className="yaAgregado">Producto ya agregado</p>
                                     <div className="botones">
-                                        <Link className="btnLink" to="/productos">Seguir Comprando</Link>
-                                        <Link className="btnLink" to="/carrito">Ir a pagar</Link>
-                                        <button className="btnLink" onClick={() => removerDelCarrito(item.id)}>Quitar del carrito</button>
+                                        <Link className="btn btn-primario" to="/productos">Seguir Comprando</Link>
+                                        <Link className="btn btn-primario" to="/carrito">Ir a pagar</Link>
+                                        <button className="btn btn-primario" onClick={() => removerDelCarrito(item.id)}>Quitar del carrito</button>
                                     </div>
                                 </div>
                             : <ItemCount 
@@ -61,7 +61,7 @@ const ItemDetail = ( {item} ) => {
                     </div>
                 </div>
             </div>
-            <button className="btnVolver" onClick={handleVolver}>Volver</button>
+            <button className="btn btn-secundario" onClick={handleVolver}>Volver</button>
         </div>
     )
 }

@@ -108,6 +108,7 @@ const Checkout = () => {
                             value={values.nombre}
                             
                             placeholder='Nombre:'
+                            className="input-form"
                             />
                         <input
                             onChange={handleInputChange}
@@ -116,6 +117,7 @@ const Checkout = () => {
                             value={values.direccion}
                             
                             placeholder='Direccion:'
+                            className="input-form"
                             />
                         <input
                             onChange={handleInputChange}
@@ -124,6 +126,7 @@ const Checkout = () => {
                             value={values.telefono}
                             
                             placeholder='Telefono de contacto:'
+                            className="input-form"
                             />
                         <input
                             onChange={handleInputChange}
@@ -132,8 +135,9 @@ const Checkout = () => {
                             value={values.email}
                             
                             placeholder='Correo Electronico:'
+                            className="input-form"
                             />
-                        <button>Finalizar Compra</button>
+                        <button className="btn btn-hover-green">Finalizar Compra</button>
                     </form>
                 </div>
             </div>

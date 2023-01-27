@@ -38,7 +38,7 @@ const PopUp = ({resumen}) => {
                             </div>
                         </div>
                     </div>
-                    <Link to='/inicio' className="btn-volver-inicio"> Volver a Inicio </Link> 
+                    <Link to='/inicio' className="btn btn-primario"> Volver a Inicio </Link> 
                 </div>
             </div>
     )

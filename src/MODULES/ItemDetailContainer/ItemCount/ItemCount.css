@@ -9,20 +9,7 @@
 .itemCount .stock {
     font-size: 1.2rem;
 }
-.itemCount .contenedorBotones .btn{
-    width: 40px;
-    height: 40px;
-    font-size: 2rem;
-    font-weight: bolder;
-    border-radius: 5px;
-    cursor: pointer;
-    background-color: transparent;
-    border: none;
-}
-.itemCount .contenedorBotones .enabled:hover{
-    background-color: #e0ae3aac;
-}
-.itemCount .contenedorBotones .disabled:hover{
+.itemCount .contenedorBotones .disabled{
     background-color: transparent;
     border: 1px solid #711f31;
     cursor: default;
@@ -31,14 +18,4 @@
     font-size: 2.5rem;
     font-weight: bolder;
 
-}
-.itemCount .añadirCarrito{
-    font-size: 2rem;
-    color: #E0AF3A;
-    background-color: #711f31;
-    cursor: pointer;
-}
-.itemCount .añadirCarrito:hover{
-    background-color: #E0AF3A;
-    color: #711f31;
 }

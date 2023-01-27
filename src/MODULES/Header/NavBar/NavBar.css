@@ -5,18 +5,6 @@
     align-items: flex-end;
     gap: 30px;
 }
-.contenedor .logOut {
-    width: fit-content;
-    height: fit-content;
-    padding: 7px;
-    border-radius: 10px;
-    text-align: center;
-    background-color: #E0AF3A;
-    color: #711f31;
-    font-weight: 400;
-    font-size: large;
-    cursor: pointer;
-}
 .contenedor .navBar {
     height: inherit;
     display: flex;

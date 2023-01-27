@@ -21,25 +21,3 @@
     justify-content: center;
     gap: 20px;
 }
-.carritoContainer .contenedor .contenedorBtn .btn {
-    background-color: #E0AF3A;
-    font-size: 1rem;
-    padding: 10px;
-    border-radius: 10px;
-    border: 1px solid black;
-    cursor: pointer;
-    transition: all 100ms ease-in-out;
-}
-.carritoContainer .contenedor .contenedorBtn .btn:hover{
-    box-shadow: 2px 2px 2px #000000;
-    transform: scale(1.05);
-    font-weight: bold;
-}
-.carritoContainer .contenedor .contenedorBtn .vaciar:hover{
-    background-color: #711f31;
-    color: white;
-}
-.carritoContainer .contenedor .contenedorBtn .comprar:hover{
-    background-color: #1f7149;
-    color: white;
-}

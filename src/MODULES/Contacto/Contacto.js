@@ -34,7 +34,7 @@ const Contacto = () => {
                     name="nombre"
                     type="text"
                     placeholder="Nombre"
-                    className="input"
+                    className="input-form"
                 />
                 <input
                     onChange={handleInputChange}
@@ -42,7 +42,7 @@ const Contacto = () => {
                     name="email"
                     type="email"
                     placeholder="Correo Electronico"
-                    className="input"
+                    className="input-form"
                 />
                 <input
                     onChange={handleInputChange}
@@ -50,10 +50,10 @@ const Contacto = () => {
                     name="cel"
                     type="phone"
                     placeholder="Numero de telefono"
-                    className="input"
+                    className="input-form"
                 />
 
-                <button onClick={handleSubmit}>Enviar</button>
+                <button onClick={handleSubmit} className="btn btn-secundario contraste">Enviar</button>
             </form>
 
         </div>

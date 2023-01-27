@@ -23,8 +23,8 @@ const Carrito = () => {
                 ?   <div className="contenedor">
                         <h4>Total: { new Intl.NumberFormat('en-AR', {style: 'currency', currency: 'ARS', maximumFractionDigits: 0}).format(totalCarrito()) } </h4>
                         <div className="contenedorBtn">
-                            <button className="btn vaciar" onClick={vaciarCarrito}> Vaciar Carrito</button>
-                            <Link to='/checkout' className="btn comprar"> Realizar el pago</Link>
+                            <button className="btn btn-hover-green" onClick={vaciarCarrito}> Vaciar Carrito</button>
+                            <Link to='/checkout' className="btn btn-hover-red"> Realizar el pago</Link>
                         </div>
                     </div>
                 :   <CarritoVacio />

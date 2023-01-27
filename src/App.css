@@ -1,0 +1,79 @@
+/* BOTONES */
+.btn {
+    border: none;
+    width: fit-content;
+    height: fit-content;
+    font-size: 1.2rem;
+    padding: 10px;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all 50ms ease-in-out;
+}
+.btn:hover {
+    transform: scale(1.1);
+    box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.5);
+}
+.btn:active {
+    transform: scale(0.9);
+    box-shadow: inset 1px 1px 1px black;
+}
+.btn-primario{
+    color: black;
+    background-color: #E0AF3A;
+}
+.btn-primario:active{
+    background-color: #b78e2e ;
+}
+.btn-secundario{
+    color: #E0AF3A;
+    background-color: #711f31;
+}
+.btn-secundario:active{
+    background-color: #611b2a ;
+}
+.contraste:hover {
+    background-color: #E0AF3A;
+    color: #711f31;
+}
+.contraste:active {
+    background-color: #b78e2e;
+    color: #711f31;
+}
+.btn-hover-green {
+    color: black;
+    background-color: #E0AF3A;
+}
+.btn-hover-green:hover{
+    background-color: #1f7149;
+    color: white;
+}
+.btn-hover-green:active{
+    background-color: #195c3c;
+    color: white;
+}
+.btn-hover-red {
+    color: black;
+    background-color: #E0AF3A;
+}
+.btn-hover-red:hover{
+    background-color: #711f31;
+    color: white;
+}
+.btn-hover-red:active{
+    background-color: #611b2a;
+    color: white;
+}
+
+/* FORMULARIOS */
+.input-form {
+    width: 50%;
+    min-width: 350px;
+    height: fit-content;
+    padding: 10px;
+    border-radius: 10px;
+    border: 1px solid black;
+    font-size: 1.2rem;
+}
+.input-transparent {
+    background-color: rgba(255, 255, 255, 0.7);
+}
