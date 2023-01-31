@@ -1,6 +1,7 @@
 import { createContext, useEffect, useState } from "react";
 import { createUserWithEmailAndPassword, signInWithEmailAndPassword, onAuthStateChanged, signOut } from "firebase/auth"
-import { auth } from "../../FIREBASE/Config"
+import { auth, db } from "../../FIREBASE/Config"
+import { addDoc, collection } from "firebase/firestore";
 
 
 
@@ -13,7 +14,12 @@ export const LoginProvider = ({children}) => {
     const [usuario, setUsuario] = useState({
         email: null,
         logged: false,
-        error: null
+        error: null,
+        favs: [],
+        datosPersonales: {
+            direccion: '',
+            telefono: ''
+        }
     })
 
     const login = (values) => {
@@ -23,8 +29,7 @@ export const LoginProvider = ({children}) => {
             .then((userCredential) => {
                 setUsuario({
                     email: userCredential.user.email,
-                    logged: true,
-                    error: null
+                    logged: true
                 })
             })    
             .catch((err) => {
@@ -56,10 +61,13 @@ export const LoginProvider = ({children}) => {
         createUserWithEmailAndPassword(auth, values.email, values.contraseña)
             .then((userCredential) => {
                 setUsuario({
+                    ...usuario,
                     email: userCredential.user.email,
                     logged: true,
                     error: null
                 })
+                const usersCollection = collection(db, 'users')
+                addDoc(usersCollection, usuario)
             })
             .catch((err) => {
                 console.log(err)
@@ -87,7 +95,12 @@ export const LoginProvider = ({children}) => {
     }, [])
 
     return (
-        <LoginContext.Provider value={{usuario, login, logOut, register, loading}}>
+        <LoginContext.Provider value={{
+            usuario, 
+            login, 
+            logOut, 
+            register, 
+            loading}}>
             {children}
         </LoginContext.Provider>
     )

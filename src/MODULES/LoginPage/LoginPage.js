@@ -38,7 +38,6 @@ const LoginPage = () => {
         return <Navigate to="/inicio"/>
     }
 
-
     return(
         <div className="contenedorLoginPage">
             <div className="contenedor">
