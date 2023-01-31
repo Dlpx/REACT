@@ -47,7 +47,6 @@ const Checkout = () => {
         const refOrders = collection(db, 'orders')
         const refProductos = collection(db, 'productos')
 
-
         const outOfStock = []
 
         const refItems = query( refProductos, where( documentId(), 'in', carrito.map(prod => prod.id) ) )
