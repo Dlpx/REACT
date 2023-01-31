@@ -66,8 +66,16 @@ export const LoginProvider = ({children}) => {
                     logged: true,
                     error: null
                 })
+                let newUser = {
+                    email: userCredential.user.email,
+                    favs: [],
+                    datosPersonales: {
+                        direccion: '',
+                        telefono: ''
+                    }
+                }
                 const usersCollection = collection(db, 'users')
-                addDoc(usersCollection, usuario)
+                addDoc(usersCollection, newUser)
             })
             .catch((err) => {
                 console.log(err)
